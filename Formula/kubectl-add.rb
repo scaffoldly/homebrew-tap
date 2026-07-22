@@ -8,28 +8,28 @@
 class KubectlAdd < Formula
   desc "Install anything into your cluster from whatever you point it at"
   homepage "https://github.com/scaffoldly/kubectl-add"
-  version "0.2.1"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.2.1/kubectl-add_darwin_arm64.zip"
-      sha256 "a62f948e5f5350ae2dbb6eb8582bb68e2823b595cda37bcf1e48ab0ce8253289"
+      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.3.1/kubectl-add_darwin_arm64.zip"
+      sha256 "f0bca4835ab8d6fcc4e5b54592f5c5d724828eb25f18051d8908baeaab348f4a"
     end
     on_intel do
-      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.2.1/kubectl-add_darwin_amd64.zip"
-      sha256 "2b408c867b98798fe559259b9ed3d8fa18f4957753cc0b00443832af9a35b8a8"
+      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.3.1/kubectl-add_darwin_amd64.zip"
+      sha256 "2494257a4647e3a29954f42071726eec8984e41231db5e6a66b996aa0d066e22"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.2.1/kubectl-add_linux_arm64.zip"
-      sha256 "db5c8ebcd6ac24b52091d98d7e0a3965af55a1f4aa266346d3e1ec5033b2bce1"
+      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.3.1/kubectl-add_linux_arm64.zip"
+      sha256 "195a4ef75ae277b0d21e6777f34f3ab7bdeb1ac9daba5d6664e2dfbe63a96885"
     end
     on_intel do
-      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.2.1/kubectl-add_linux_amd64.zip"
-      sha256 "17830d14395c3e099e8b78623293f5ad5d8d905dbbb0d95dd99c0ae00ee04cb4"
+      url "https://github.com/scaffoldly/kubectl-add/releases/download/v0.3.1/kubectl-add_linux_amd64.zip"
+      sha256 "2f0b3815ed7e5a5efe9c8ab2b8090e101c77bdce0317d510189a0d622a09fa13"
     end
   end
 
