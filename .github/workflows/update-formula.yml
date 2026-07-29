@@ -2,8 +2,8 @@ name: update-formula
 
 # Self-updating tap: this workflow lives in the tap repo and commits to itself
 # with the repo's own GITHUB_TOKEN (contents: write) — no cross-repo PAT. It
-# polls kubectl-add's public releases and re-renders the formula when a newer
-# one appears. workflow_dispatch triggers an immediate bump.
+# polls the supported Scaffoldly releases and re-renders their formulas when a
+# newer one appears. workflow_dispatch triggers an immediate bump.
 on:
   schedule:
     - cron: "17 * * * *" # hourly
@@ -27,17 +27,31 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          tag=$(gh release view --repo scaffoldly/kubectl-add --json tagName -q .tagName)
-          ver="${tag#v}"
-          if grep -q "version \"${ver}\"" Formula/kubectl-add.rb 2>/dev/null; then
-            echo "formula already at ${ver}"
-            exit 0
-          fi
-          echo "bumping formula to ${ver}"
           mkdir -p Formula
-          REPO=scaffoldly/kubectl-add ./render.sh "$tag" > Formula/kubectl-add.rb
+          changed=false
+
+          update_formula() {
+            local repo="$1" formula="$2" template="$3" binary="$4"
+            local tag ver
+            tag=$(gh release view --repo "$repo" --json tagName -q .tagName)
+            ver="${tag#v}"
+            if grep -q "version \"${ver}\"" "Formula/${formula}.rb" 2>/dev/null; then
+              echo "${formula} already at ${ver}"
+              return
+            fi
+            echo "bumping ${formula} to ${ver}"
+            REPO="$repo" BINARY="$binary" TEMPLATE="$template" \
+              ./render.sh "$tag" > "Formula/${formula}.rb"
+            git add "Formula/${formula}.rb"
+            changed=true
+          }
+
+          update_formula scaffoldly/kubectl-add kubectl-add formula.rb.tmpl kubectl-add
+          update_formula scaffoldly/tush tush tush.rb.tmpl tush
+
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Formula/kubectl-add.rb
-          git diff --cached --quiet || git commit -m "kubectl-add ${tag}"
-          git push
+          if [ "$changed" = true ]; then
+            git commit -m "Update Homebrew formulas"
+            git push
+          fi
