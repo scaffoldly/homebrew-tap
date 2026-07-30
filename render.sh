@@ -10,7 +10,7 @@ tag="${1:?usage: render.sh <tag>}"
 ver="${tag#v}"
 repo="${REPO:-scaffoldly/kubectl-add}"
 binary="${BINARY:-kubectl-add}"
-template="${TEMPLATE:-formula.rb.tmpl}"
+template="${TEMPLATE:-kubectl-add.rb.tmpl}"
 here="$(cd "$(dirname "$0")" && pwd)"
 
 tmp="$(mktemp -d)"

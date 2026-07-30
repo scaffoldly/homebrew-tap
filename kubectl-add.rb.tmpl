@@ -1,6 +1,7 @@
-# Template for the scaffoldly/homebrew-tap formula. The release workflow
-# (.github/workflows/release.yaml, homebrew-tap job) fills the @@...@@
-# placeholders from each release's archives and pushes the result to the tap.
+# Template for kubectl-add's tap formula. update-formula.yml polls the latest
+# release hourly and runs render.sh, which fills the @@...@@ placeholders from
+# that release's archives and commits the result to Formula/kubectl-add.rb.
+# One template per project; tush.rb.tmpl is the other.
 #
 # This is the tap formula: it installs the prebuilt release binary (the normal
 # auto-updating build). The from-source, no-self-update homebrew-core formula

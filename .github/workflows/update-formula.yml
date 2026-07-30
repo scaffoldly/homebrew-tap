@@ -46,7 +46,7 @@ jobs:
             changed=true
           }
 
-          update_formula scaffoldly/kubectl-add kubectl-add formula.rb.tmpl kubectl-add
+          update_formula scaffoldly/kubectl-add kubectl-add kubectl-add.rb.tmpl kubectl-add
           update_formula scaffoldly/tush tush tush.rb.tmpl tush
 
           git config user.name 'github-actions[bot]'
