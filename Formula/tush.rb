@@ -1,28 +1,28 @@
 class Tush < Formula
   desc "Serve an interactive shell over a reconnectable tunnel"
   homepage "https://github.com/scaffoldly/tush"
-  version "0.0.4"
+  version "0.0.5"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/scaffoldly/tush/releases/download/v0.0.4/tush_darwin_arm64.zip"
-      sha256 "39c3c12b226430295a0e67f943237f7791befca2bb38cb68e2abdc658791c2ca"
+      url "https://github.com/scaffoldly/tush/releases/download/v0.0.5/tush_darwin_arm64.zip"
+      sha256 "685f180608c5ec0ffc310b8dc294312e89fa10e933b0c81f487abd396895bb41"
     end
     on_intel do
-      url "https://github.com/scaffoldly/tush/releases/download/v0.0.4/tush_darwin_amd64.zip"
-      sha256 "34e4afb50b29e0e460fffd85439e4b4c289792b1a0ae2154ab6ab6db96e5768e"
+      url "https://github.com/scaffoldly/tush/releases/download/v0.0.5/tush_darwin_amd64.zip"
+      sha256 "a93c33f4bc548869691ee801042f6eacc9c9be4490243340d984bfdeac247da1"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/scaffoldly/tush/releases/download/v0.0.4/tush_linux_arm64.zip"
-      sha256 "b2c60ba0223df6462bc171daaff1c2ec3e2a4466d8701abec66468a3f37cfa43"
+      url "https://github.com/scaffoldly/tush/releases/download/v0.0.5/tush_linux_arm64.zip"
+      sha256 "29c6f08ab3107a83d1586950033ced2402e9e045e32600d34f35b45045cee7de"
     end
     on_intel do
-      url "https://github.com/scaffoldly/tush/releases/download/v0.0.4/tush_linux_amd64.zip"
-      sha256 "2aa7c9514bd7a6ebb3e11739132998e14a8b35fd0ceb16e3416771f109aeab85"
+      url "https://github.com/scaffoldly/tush/releases/download/v0.0.5/tush_linux_amd64.zip"
+      sha256 "8f4aa1ad14a0dc8a2e7ca8ba8139574e282b5b49442759ecafcb6889d95bccd3"
     end
   end
 
